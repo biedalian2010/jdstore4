@@ -5,5 +5,13 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  root 'welcome#index'
+  root 'products#index'
+
+  resources :products do
+    member do
+      post :add_to_cart
+    end
+  end
+
+  resources :carts
 end
